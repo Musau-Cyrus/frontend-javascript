@@ -2,7 +2,7 @@ namespace Subjects{
     export class Teacher{
         experienceTeachingReact: number;
     }
-    class React extends Subject{
+    export class React extends Subject{
           getRequirements(): string{
             return 'Here is a requirements for React';
         }
