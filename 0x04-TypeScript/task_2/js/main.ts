@@ -47,3 +47,28 @@ function createEmployee(salary: number | string): Teacher | Director{
 console.log(createEmployee(200));// output - Teacher
 console.log(createEmployee(1000));//output - Director
 console.log(createEmployee('$500'));//output - Director
+
+    //Task 6 - Creating functions specific to employees
+function isDirector(employee: Teacher | Director): employee is Director{
+    return (employee as Director).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: Director | Teacher ):void {
+    if(isDirector(employee)){
+        console.log(employee.workDirectorTasks());
+    }else{
+        console.log(employee.workTeacherTasks());
+    }
+
+}
+
+    //Task 7 String literals
+type Subjects = "Math" | "History";
+
+function teacherClass(todayClass: Subjects): string{
+    if(todayClass === "Math"){
+        return "Teaching Math";
+    }else{
+        return "Teaching History";
+    }
+}
