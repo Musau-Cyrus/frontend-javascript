@@ -7,10 +7,30 @@ interface Teacher {
     [anotherAttribute:string]: any;
 }
 
-const teacher3: Teacher = {
-    firstName: 'John',
-    fullTimeEmployee: true,
-    lastName: 'Doe',
-    location: 'London',
-    contract: false,
-};
+interface Director extends Teacher {
+    numberOfAttributes: number;
+}
+
+function printTeacher(firstName: string, lastName: string): string{
+    return `${firstName.charAt(0)}. ${lastName}`
+}
+
+interface StudentInterface {
+    firstName: string;
+    lastName: string;
+}
+
+class Student implements StudentInterface{
+    constructor(public firstName: string, public lastName: string) {}
+
+    workOnHomework(): string{
+        return 'Currently working';
+    }
+
+    displayName(): string {
+        return this.firstName;
+    }
+}
+
+
+
